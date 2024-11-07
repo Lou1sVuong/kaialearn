@@ -186,7 +186,7 @@ export default function ContractPuzzles() {
               <div className="flex flex-col items-start gap-4 pt-4">
                 <Button onClick={checkSolution}>Check Solution</Button>
                 {feedback && (
-                  <Alert variant={isCompleted ? "default" : "destructive"}>
+                  <Alert variant={isCompleted ? "success" : "destructive"}>
                     {isCompleted ? (
                       <CheckCircle2 className="h-4 w-4" />
                     ) : (
