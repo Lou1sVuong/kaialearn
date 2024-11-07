@@ -80,7 +80,7 @@ export default function ContractPuzzles() {
   return (
     <div className="flex h-screen flex-col">
       {/* Header */}
-      <div className="border-borderpx-4 flex w-full items-center justify-between gap-2 border-b pb-2 pt-0 sm:items-center lg:p-0 lg:pb-4 lg:pt-2">
+      <div className="border-borderpx-4 flex w-full items-center justify-between gap-2 border-b px-4 pb-2 pt-0 sm:items-center lg:p-0 lg:pb-4 lg:pt-2">
         <div>
           <KaialearnLogo />
         </div>
