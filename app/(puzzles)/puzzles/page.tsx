@@ -80,9 +80,11 @@ export default function ContractPuzzles() {
   return (
     <div className="flex h-screen flex-col">
       {/* Header */}
-      <div className="border-borderp-4 flex w-full items-start justify-between gap-2 border-b sm:items-center lg:p-0 lg:py-4">
-        <KaialearnLogo />
-        <div className="flex h-5 items-center gap-4">
+      <div className="border-borderpx-4 flex w-full items-center justify-between gap-2 border-b pb-2 pt-0 sm:items-center lg:p-0 lg:pb-4 lg:pt-2">
+        <div>
+          <KaialearnLogo />
+        </div>
+        <div className="mt-4 flex h-5 items-center gap-4">
           {MENU_ITEMS.map((item, index) => (
             <div key={index}>
               <Link

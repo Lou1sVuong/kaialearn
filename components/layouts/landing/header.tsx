@@ -114,7 +114,7 @@ function Header() {
 
 export const KaialearnLogo = () => {
   return (
-    <>
+    <div className="flex items-center">
       <Link href="/">
         <Image
           src="/kaialearn-logo-black.png"
@@ -133,7 +133,7 @@ export const KaialearnLogo = () => {
           className="hidden w-[10rem] dark:block"
         />
       </Link>
-    </>
+    </div>
   );
 };
 
