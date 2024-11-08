@@ -4,7 +4,7 @@ export const puzzles = [
     title: "Game1",
     description:
       "Set isWon to true by calling the win function with the correct parameters",
-    difficulty: 1,
+    difficulty: "Easy",
     contract: `// SPDX-License-Identifier: MIT
   pragma solidity ^0.8.17;
   
@@ -36,7 +36,7 @@ export const puzzles = [
     title: "Game2",
     description:
       "Set isWon to true by calling the win function at the right time",
-    difficulty: 2,
+    difficulty: "Medium",
     contract: `// SPDX-License-Identifier: MIT
   pragma solidity ^0.8.17;
   
@@ -68,7 +68,7 @@ export const puzzles = [
     id: 3,
     title: "Game3",
     description: "Set isWon to true by guessing the correct number",
-    difficulty: 3,
+    difficulty: "Hard",
     contract: `// SPDX-License-Identifier: MIT
   pragma solidity ^0.8.17;
   
@@ -105,7 +105,7 @@ export const puzzles = [
     id: 4,
     title: "Game4",
     description: "Set isWon to true by exploiting the overflow vulnerability",
-    difficulty: 4,
+    difficulty: "Hard",
     contract: `// SPDX-License-Identifier: MIT
   pragma solidity ^0.7.6;
   
@@ -144,7 +144,7 @@ export const puzzles = [
     title: "Game5",
     description:
       "Set isWon to true by exploiting the contract's initialization",
-    difficulty: 5,
+    difficulty: "Hard",
     contract: `// SPDX-License-Identifier: MIT
   pragma solidity ^0.8.17;
   
