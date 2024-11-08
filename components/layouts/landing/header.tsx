@@ -96,12 +96,7 @@ function Header() {
               ))}
               <Link href="/about-us">About Us</Link>
             </div>
-            <div className="flex w-full gap-4">
-              <Button className="flex-1 uppercase">Sign up</Button>
-              <Button className="flex-1 uppercase" variant="outline">
-                Sign in
-              </Button>
-            </div>
+            <ConnectWalletBtn />
             <Socials />
             <div className="flex justify-center">
               <ThemeToggle />
