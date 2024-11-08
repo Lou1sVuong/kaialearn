@@ -6,19 +6,12 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
 import Editor from "@monaco-editor/react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import {
-  CheckCircle2,
-  AlertCircle,
-  Star,
-  ArrowLeft,
-  ArrowRight,
-} from "lucide-react";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -31,6 +24,8 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Separator } from "@radix-ui/react-separator";
 import { KaialearnLogo } from "@/components/layouts/landing/header";
 import { puzzles } from "@/app/(puzzles)/puzzles/data";
+import { IconPoint, IconPointFilled } from "@tabler/icons-react";
+import { Badge } from "@/components/ui/badge";
 
 const MENU_ITEMS = [
   { label: "Home", href: "/" },
@@ -40,12 +35,13 @@ const MENU_ITEMS = [
 function DifficultyStars({ difficulty }: { difficulty: number }) {
   return (
     <div className="flex">
-      {[...Array(5)].map((_, i) => (
-        <Star
-          key={i}
-          className={`h-4 w-4 ${i < difficulty ? "fill-yellow-400 text-yellow-400" : "text-gray-300"}`}
-        />
-      ))}
+      {[...Array(5)].map((_, i) =>
+        i < difficulty ? (
+          <IconPointFilled key={i} className="size-5" />
+        ) : (
+          <IconPoint key={i} className="size-5" />
+        ),
+      )}
     </div>
   );
 }
@@ -99,6 +95,7 @@ export default function ContractPuzzles() {
           <ThemeToggle />
         </div>
       </div>
+      {/* Puzzle Selector */}
       <div className="relative flex items-start justify-between gap-2 p-4 sm:items-center lg:p-0 lg:py-4">
         <div className="flex items-center gap-2">
           <h1 className="text-xl font-bold">Contract Puzzles</h1>
@@ -131,15 +128,17 @@ export default function ContractPuzzles() {
                     {puzzles[currentPuzzle].description}
                   </CardDescription>
                 </div>
-                <DifficultyStars
-                  difficulty={puzzles[currentPuzzle].difficulty}
-                />
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline">
+                    {puzzles[currentPuzzle].difficulty}
+                  </Badge>
+                </div>
               </div>
             </CardHeader>
             <CardContent>
               <Editor
                 height="300px"
-                defaultLanguage="solidity"
+                defaultLanguage="javascript"
                 value={puzzles[currentPuzzle].contract}
                 theme="vs-dark"
                 options={{
