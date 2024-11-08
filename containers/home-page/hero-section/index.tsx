@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { Cover } from "@/components/ui/cover";
-import Link from "next/link";
+import { LinkButton } from "@/components/ui/link-button";
 
 export default function HeroSection() {
   return (
@@ -16,12 +15,12 @@ export default function HeroSection() {
           hacks.
         </p>
         <div className="flex h-12 w-2/3 gap-5 lg:w-1/3">
-          <Button className="h-full flex-1">
-            <Link href="/puzzles">Try It Now</Link>
-          </Button>
-          <Button variant="outline" className="h-full flex-1">
-            <Link href="/docs">View Docs</Link>
-          </Button>
+          <LinkButton className="h-full flex-1" href="/puzzles">
+            Try It Now
+          </LinkButton>
+          <LinkButton variant="outline" className="h-full flex-1" href="/docs">
+            View Docs
+          </LinkButton>
         </div>
       </div>
     </section>
