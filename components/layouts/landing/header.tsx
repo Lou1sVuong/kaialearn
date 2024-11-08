@@ -1,5 +1,6 @@
 "use client";
 
+import ConnectWalletBtn from "@/components/connect-wallet-btn";
 import StartHighlight from "@/components/start-highlight";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -72,7 +73,7 @@ function Header() {
             <Socials />
             <Separator orientation="vertical" />
             <ThemeToggle />
-            <Button className="w-32 uppercase">Connect</Button>
+            <ConnectWalletBtn />
           </div>
         </div>
       </div>
