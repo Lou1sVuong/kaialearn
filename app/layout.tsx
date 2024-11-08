@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
 import Providers from "@/providers";
-import Header from "@/components/layouts/landing/header";
 import TopLoader from "@/components/top-loader.tsx";
+import { Toaster } from "@/components/ui/toaster";
+import "@rainbow-me/rainbowkit/styles.css";
+import "./globals.css";
 
 const myFont = localFont({
   src: [
@@ -56,6 +57,7 @@ export default function RootLayout({
         <Providers>
           <TopLoader />
           {children}
+          <Toaster />
         </Providers>
       </body>
     </html>
