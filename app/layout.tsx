@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "@/providers";
 import Header from "@/components/layouts/landing/header";
+import TopLoader from "@/components/top-loader.tsx";
 
 const myFont = localFont({
   src: [
@@ -53,6 +54,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${myFont.className} ${myFont.variable} antialiased`}>
         <Providers>
+          <TopLoader />
           {children}
         </Providers>
       </body>
