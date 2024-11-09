@@ -44,7 +44,6 @@ export function WalletProviders({ children }: { children: React.ReactNode }) {
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
-          coolMode
           initialChain={kairos}
           showRecentTransactions={true}
           theme={darkTheme({
