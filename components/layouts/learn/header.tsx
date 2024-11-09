@@ -76,9 +76,9 @@ function MobileMenu() {
 
 function MobileMenuItems() {
   return (
-    <div className="w-full border-b border-border px-4">
-      <div className="flex flex-col gap-8 px-4 py-4">
-        <div className="flex flex-col gap-4">
+    <div className="w-full">
+      <div className="flex flex-col gap-8 py-4">
+        <div className="flex flex-col gap-4 text-nowrap">
           {MENU_ITEMS.map((item, index) => (
             <div key={index}>
               <Link href={`/${item.href}`}>{item.label}</Link>

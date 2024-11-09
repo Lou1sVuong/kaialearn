@@ -36,7 +36,7 @@ function Header() {
     >
       <div className="relative flex items-center justify-between bg-primary px-40 py-[0.60rem] text-xs font-normal leading-5 text-primary-foreground">
         <StartHighlight />
-        <div className="absolute left-1/2 top-1/2 flex h-5 -translate-x-1/2 -translate-y-1/2 items-center gap-2">
+        <div className="absolute left-1/2 top-1/2 flex h-5 -translate-x-1/2 -translate-y-1/2 items-center gap-2 text-nowrap">
           <p className="font-normal">
             <span className="text-highlight">TESTNET</span> IS LIVE!
           </p>
@@ -94,15 +94,15 @@ function Header() {
 
         {open && (
           <div className="flex flex-col gap-8 px-4 py-4">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col items-center gap-4">
               {MENU_ITEMS.map((item, index) => (
                 <div key={index}>
                   <Link href={`/${item.href}`}>{item.label}</Link>
                 </div>
               ))}
               <Link href="/about-us">About Us</Link>
+              <ConnectWalletBtn />
             </div>
-            <ConnectWalletBtn />
             <Socials />
             <div className="flex justify-center">
               <ThemeToggle />
