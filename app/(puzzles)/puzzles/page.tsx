@@ -21,11 +21,12 @@ import {
 } from "@/components/ui/select";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Separator } from "@radix-ui/react-separator";
 import { KaialearnLogo } from "@/components/layouts/landing/header";
 import { puzzles } from "@/app/(puzzles)/puzzles/data";
 import { IconPoint, IconPointFilled } from "@tabler/icons-react";
 import { Badge } from "@/components/ui/badge";
+import ConnectWalletBtn from "@/components/connect-wallet-btn";
+import { Separator } from "@/components/ui/separator";
 
 const MENU_ITEMS = [
   { label: "Home", href: "/" },
@@ -80,7 +81,7 @@ export default function ContractPuzzles() {
         <div>
           <KaialearnLogo />
         </div>
-        <div className="mt-4 flex h-5 items-center gap-4">
+        <div className="mt-4 flex h-7 items-center gap-4">
           {MENU_ITEMS.map((item, index) => (
             <div key={index}>
               <Link
@@ -91,8 +92,9 @@ export default function ContractPuzzles() {
               </Link>
             </div>
           ))}
-          <Separator orientation="vertical" />
+          <Separator className="" orientation="vertical" />
           <ThemeToggle />
+          <ConnectWalletBtn />
         </div>
       </div>
       {/* Puzzle Selector */}

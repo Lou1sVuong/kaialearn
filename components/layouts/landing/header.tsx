@@ -3,7 +3,6 @@
 import ConnectWalletBtn from "@/components/connect-wallet-btn";
 import StartHighlight from "@/components/start-highlight";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import {
   IconArrowRight,
