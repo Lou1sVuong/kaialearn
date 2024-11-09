@@ -123,6 +123,7 @@ export default function PuzzlePage({
             <CardContent>
               <Editor
                 height="300px"
+                loading={<div>Kaialearn is preparing the puzzle for you...</div>}
                 defaultLanguage="javascript"
                 value={puzzles[currentPuzzle].contract}
                 theme="vs-dark"
@@ -159,6 +160,7 @@ export default function PuzzlePage({
                 defaultLanguage="javascript"
                 value={userSolution}
                 onChange={handleEditorChange}
+                loading={<div>Kaialearn is preparing the editor for you...</div>}
                 theme="vs-dark"
                 options={{
                   minimap: { enabled: false },
