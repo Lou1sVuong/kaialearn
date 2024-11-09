@@ -105,7 +105,7 @@ export default function LearnPage() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-nowrap text-xl">
+                      <CardTitle className="line-clamp-1 text-nowrap text-lg lg:text-xl">
                         {module.title}
                       </CardTitle>
                     </div>
