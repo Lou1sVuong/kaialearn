@@ -53,7 +53,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${myFont.className} ${myFont.variable} antialiased`}>
+      <body
+        className={`${myFont.className} ${myFont.variable} custom-selection antialiased`}
+      >
         <Providers>
           <TopLoader />
           {children}
