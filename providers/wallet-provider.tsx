@@ -8,7 +8,7 @@ import {
   darkTheme,
 } from "@rainbow-me/rainbowkit";
 import { trustWallet, ledgerWallet } from "@rainbow-me/rainbowkit/wallets";
-import { kairos, uniqueOpal, kaia } from "wagmi/chains";
+import { kairos } from "wagmi/chains";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider, http } from "wagmi";
 
@@ -34,6 +34,12 @@ const config = getDefaultConfig({
 const queryClient = new QueryClient();
 
 export function WalletProviders({ children }: { children: React.ReactNode }) {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
@@ -48,7 +54,7 @@ export function WalletProviders({ children }: { children: React.ReactNode }) {
           })}
           locale="en-US"
         >
-          {children}
+          {mounted && children}
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
