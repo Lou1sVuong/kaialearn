@@ -36,9 +36,13 @@ export default function FeatureSection() {
           const Icon = feature.icon;
           return (
             <div key={index} className="border border-border p-6">
-              <Icon className="mb-4 h-12 w-12" />
-              <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
-              <p className="text-gray-400">{feature.description}</p>
+              <Icon className="mb-4 size-8 lg:size-12" />
+              <h3 className="mb-2 text-lg font-semibold lg:text-xl">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-muted-foreground lg:text-base">
+                {feature.description}
+              </p>
             </div>
           );
         })}

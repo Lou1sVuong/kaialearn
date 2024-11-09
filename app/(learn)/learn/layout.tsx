@@ -1,4 +1,4 @@
-import PuzzlesHeader from "@/components/layouts/puzzles/header";
+import PuzzlesHeader from "@/components/layouts/learn/header";
 
 export default function PuzzlesLayout({
   children,

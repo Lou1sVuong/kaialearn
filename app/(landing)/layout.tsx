@@ -8,7 +8,7 @@ export default function LandingLayout({
   return (
     <>
       <Header />
-      <main className="flex flex-col gap-16 py-20 pt-20 xl:px-40">
+      <main className="flex flex-col gap-2 px-2 py-20 xl:px-40">
         {children}
       </main>
     </>
