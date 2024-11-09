@@ -75,4 +75,7 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  .custom-selection {
+    @apply selection:bg-black selection:text-highlight dark:selection:bg-white;
+  }
 }
