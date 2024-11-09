@@ -59,7 +59,12 @@ export default function ConnectWalletBtn() {
                     variant="default"
                     className="rounded-none bg-foreground text-background hover:bg-foreground/90"
                   >
-                    {chain.name}
+                    {/* {chain.name && chain.name.length > 10
+                      ? `${chain.name.slice(0, 2)}..${chain.name.slice(-2)}`
+                      : chain.name} */}
+                    {chain.name && chain.name === "Klaytn Baobab"
+                      ? "Kairos"
+                      : chain.name}
                     <IconChevronDown className="size-4" />
                   </Button>
 
@@ -68,6 +73,7 @@ export default function ConnectWalletBtn() {
                     variant="default"
                     className="rounded-none bg-foreground text-background hover:bg-foreground/90"
                   >
+                    <img src={account.ensAvatar} alt="" />
                     {account.displayName}
                   </Button>
                 </div>
