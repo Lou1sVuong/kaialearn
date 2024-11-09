@@ -4,6 +4,7 @@ import ConnectWalletBtn from "@/components/connect-wallet-btn";
 import StartHighlight from "@/components/start-highlight";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Separator } from "@/components/ui/separator";
+import { useScroll } from "@/hooks/use-scroll";
 import {
   IconArrowRight,
   IconBrandDiscordFilled,
@@ -24,9 +25,15 @@ const MENU_ITEMS = [
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const scrolled = useScroll();
   const toggleOpen = () => setOpen((prev) => !prev);
+
   return (
-    <div className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-background uppercase">
+    <div
+      className={`fixed left-0 right-0 top-0 z-50 bg-background uppercase ${
+        scrolled ? "border-b border-border" : ""
+      }`}
+    >
       <div className="relative flex items-center justify-between bg-primary px-40 py-[0.60rem] text-xs font-normal leading-5 text-primary-foreground">
         <StartHighlight />
         <div className="absolute left-1/2 top-1/2 flex h-5 -translate-x-1/2 -translate-y-1/2 items-center gap-2">
