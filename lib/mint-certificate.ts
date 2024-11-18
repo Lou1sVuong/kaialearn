@@ -15,7 +15,7 @@ export async function mintNFT({
   const signer = await provider.getSigner();
 
   // Lấy hợp đồng KaiaLearnNFT đã triển khai
-  const contractAddress = "0x28e05cbe573f037b7d7cd98b14ff03d34a343b72";
+  const contractAddress = "0xe51fd96c6f5285bd0ef4749644c9af6b3d4fa227";
   const contract = new ethers.Contract(
     contractAddress,
     KaiaLearnNFT_ABI,
