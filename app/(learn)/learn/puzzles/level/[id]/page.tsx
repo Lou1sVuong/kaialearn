@@ -24,6 +24,7 @@ import { Badge } from "@/components/ui/badge";
 import { useRouter } from "next/navigation";
 import { notFound } from "next/navigation";
 import { LinkButton } from "@/components/ui/link-button";
+import { mintNFT } from "@/lib/mint-certificate";
 
 export default function PuzzlePage({
   params,
@@ -45,8 +46,18 @@ export default function PuzzlePage({
   );
   const [feedback, setFeedback] = useState("");
   const [isCompleted, setIsCompleted] = useState(false);
+  const [infoCertificate, setInfoCertificate] = useState({
+    title: "",
+    description: "",
+    score: 0,
+  });
 
   useEffect(() => {
+    setInfoCertificate({
+      title: puzzles[currentPuzzle].title,
+      description: puzzles[currentPuzzle].description,
+      score: puzzles[currentPuzzle].score,
+    });
     setUserSolution(puzzles[currentPuzzle].testTemplate);
     setIsCompleted(false);
     setFeedback("");
@@ -123,7 +134,9 @@ export default function PuzzlePage({
             <CardContent>
               <Editor
                 height="300px"
-                loading={<div>Kaialearn is preparing the puzzle for you...</div>}
+                loading={
+                  <div>Kaialearn is preparing the puzzle for you...</div>
+                }
                 defaultLanguage="javascript"
                 value={puzzles[currentPuzzle].contract}
                 theme="vs-dark"
@@ -160,7 +173,9 @@ export default function PuzzlePage({
                 defaultLanguage="javascript"
                 value={userSolution}
                 onChange={handleEditorChange}
-                loading={<div>Kaialearn is preparing the editor for you...</div>}
+                loading={
+                  <div>Kaialearn is preparing the editor for you...</div>
+                }
                 theme="vs-dark"
                 options={{
                   minimap: { enabled: false },
@@ -170,7 +185,17 @@ export default function PuzzlePage({
                 }}
               />
               <div className="flex flex-col items-start gap-4 pt-4">
-                <Button onClick={checkSolution}>Check Solution</Button>
+                <div className="flex items-center gap-2">
+                  <Button onClick={checkSolution}>Check Solution</Button>
+                  {isCompleted && (
+                    <Button
+                      variant="outline"
+                      onClick={() => mintNFT(infoCertificate)}
+                    >
+                      Mint Certificate
+                    </Button>
+                  )}
+                </div>
                 {feedback && (
                   <Alert variant={isCompleted ? "success" : "destructive"}>
                     {isCompleted ? (

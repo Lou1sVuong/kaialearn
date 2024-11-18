@@ -30,6 +30,7 @@ export const puzzles = [
   });`,
     hint: "Look at the win function's requirement. What number does it expect?",
     solution: `await contract.win(42);`,
+    score: 1,
   },
   {
     id: 2,
@@ -63,6 +64,7 @@ export const puzzles = [
     hint: "The win function checks if the block number is even. How can you manipulate the block number in your test?",
     solution: `await ethers.provider.send("evm_mine", []);
   await contract.win();`,
+    score: 2,
   },
   {
     id: 3,
@@ -100,6 +102,7 @@ export const puzzles = [
     hint: "You need to find a way to predict or extract the secret number. Think about how the contract generates it.",
     solution: `const secretNumber = await ethers.provider.getStorageAt(contract.address, 1);
   await contract.guess(secretNumber);`,
+    score: 3,
   },
   {
     id: 4,
@@ -137,7 +140,9 @@ export const puzzles = [
     hint: "This contract uses an older Solidity version. Think about how uint8 behaves when it overflows.",
     solution: `await contract.add(255);
   await contract.add(1);
-  await contract.win();`,
+    await contract.win();
+  `,
+    score: 4,
   },
   {
     id: 5,
@@ -177,5 +182,6 @@ export const puzzles = [
     hint: "Look at the initialize function. Is there any way you can become the owner?",
     solution: `await contract.initialize(await ethers.provider.getSigner().getAddress());
   await contract.win();`,
+    score: 5,
   },
 ];
