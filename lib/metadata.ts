@@ -30,7 +30,7 @@ export const metadataKaialearn = {
     siteName: "Kaialearn",
     images: [
       {
-        url: "https://plum-high-lobster-969.mypinata.cloud/ipfs/QmbCsvZxK6yCnpuk1yMnrNBHS4ZXyWEVaAXtNCaD8rMAnP",
+        url: "./kaialearn-op-image.png",
       },
     ],
     locale: "en_US",
