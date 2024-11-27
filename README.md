@@ -1,4 +1,7 @@
 
+![kaialearn-op-image](https://github.com/user-attachments/assets/62b7d74d-7cae-46d1-8c11-28daa467b0cd)
+
+
 # Kaialearn Platform
 
 ## **Overview**
