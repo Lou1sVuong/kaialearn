@@ -18,7 +18,12 @@ export default function HeroSection() {
           <LinkButton className="h-full flex-1" href="/learn">
             Try It Now
           </LinkButton>
-          <LinkButton variant="outline" className="h-full flex-1" href="/docs">
+          <LinkButton
+            variant="outline"
+            className="h-full flex-1"
+            href="https://docs.kaialearn.com/"
+            blankTarget
+          >
             View Docs
           </LinkButton>
         </div>

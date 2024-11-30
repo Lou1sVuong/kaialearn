@@ -18,9 +18,7 @@ import { useState } from "react";
 
 const MENU_ITEMS = [
   { label: "Product", href: "/" },
-  { label: "Changelog", href: "/changelog" },
-  { label: "Docs", href: "/docs" },
-  { label: "Blog", href: "/blog" },
+  { label: "Docs", href: "https://docs.kaialearn.com" },
 ];
 
 function Header() {
@@ -59,23 +57,33 @@ function Header() {
               <div key={index}>
                 <Link
                   className="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
-                  href={`/${item.href}`}
+                  href={`${item.href}`}
                 >
                   {item.label}
                 </Link>
               </div>
             ))}
-          </div>
-          <div className="flex h-7 items-center gap-4 text-xs font-normal leading-5">
             <div>
               <Link
-                className="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
+                className="relative block after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full 2xl:hidden"
                 href="/about-us"
               >
                 About Us
               </Link>
             </div>
-            <Separator orientation="vertical" />
+          </div>
+          <div className="flex h-7 items-center gap-4 text-xs font-normal leading-5">
+            <div className="hidden 2xl:block">
+              <div>
+                <Link
+                  className="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
+                  href="/about-us"
+                >
+                  About Us
+                </Link>
+              </div>
+              <Separator orientation="vertical" />
+            </div>
             <Socials />
             <Separator orientation="vertical" />
             <ThemeToggle />
@@ -117,22 +125,24 @@ function Header() {
 export const KaialearnLogo = () => {
   return (
     <div className="flex items-center">
-      <Link href="/">
+      <Link href="/" aria-label="KaialearnLogo-white">
         <Image
           src="/kaialearn-logo-black.png"
           alt="kaialearn-logo"
           width={200}
           height={50}
           className="w-[10rem] dark:hidden"
+          aria-label="KaialearnLogo-black"
         />
       </Link>
-      <Link href="/">
+      <Link href="/" aria-label="KaialearnLogo-white">
         <Image
           src="/kaialearn-logo-white.png"
           alt="kaialearn-logo"
           width={200}
           height={50}
           className="hidden w-[10rem] dark:block"
+          aria-label="KaialearnLogo-white"
         />
       </Link>
     </div>
@@ -142,13 +152,18 @@ export const KaialearnLogo = () => {
 const Socials = () => {
   return (
     <div className="flex items-center justify-center gap-10 lg:gap-4">
-      <Link href={"/"}>
+      <Link href="/" aria-label="Join our Discord community">
         <IconBrandDiscordFilled className="size-6 lg:size-4" />
       </Link>
-      <Link href={"/"}>
+      <Link
+        target="_blank"
+        href="https://x.com/kaialearn"
+        aria-label="Visit our X (formerly Twitter) profile"
+        rel="noopener noreferrer"
+      >
         <IconBrandX className="size-6 lg:size-4" />
       </Link>
-      <Link href={"/"}>
+      <Link href="/" aria-label="Join us on Telegram">
         <IconBrandTelegram className="size-6 lg:size-4" />
       </Link>
     </div>
