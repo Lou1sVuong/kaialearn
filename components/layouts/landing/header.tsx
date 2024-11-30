@@ -32,15 +32,18 @@ function Header() {
         scrolled ? "border-b border-border" : ""
       }`}
     >
-      <div className="relative flex items-center justify-between bg-primary px-40 py-[0.60rem] text-xs font-normal leading-5 text-primary-foreground">
+      <div className="relative flex items-center justify-between bg-primary px-40 py-[0.60rem] text-[0.5rem] font-normal leading-5 text-primary-foreground lg:text-xs">
         <StartHighlight />
         <div className="absolute left-1/2 top-1/2 flex h-5 -translate-x-1/2 -translate-y-1/2 items-center gap-2 text-nowrap">
           <p className="font-normal">
             <span className="text-highlight">TESTNET</span> IS LIVE!
           </p>
           <Separator className="h-4 w-px" orientation="vertical" />
-          <Link href="/about-testnet" className="flex items-center gap-2">
-            <p className="text-primary-foreground">Learn more</p>
+          <Link
+            href="/about-testnet"
+            className="flex items-center gap-2 text-nowrap text-primary-foreground"
+          >
+            Learn more about Testnets
             <IconArrowRight className="h-3 w-3" />
           </Link>
         </div>
