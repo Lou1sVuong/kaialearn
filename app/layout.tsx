@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import localFont from "next/font/local";
 import Providers from "@/providers";
 import TopLoader from "@/components/top-loader.tsx";
 import { Toaster } from "@/components/ui/toaster";
 import "@rainbow-me/rainbowkit/styles.css";
 import "./globals.css";
+import { metadataKaialearn } from "@/lib/metadata";
 
 const myFont = localFont({
   src: [
@@ -42,8 +44,20 @@ const myFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Kaialearn",
-  description: "Hack, learn, and secure the future of decentralized tech.",
+  title: {
+    default: "Kaialearn",
+    template: "%s | Kaialearn",
+  },
+  description: metadataKaialearn.description,
+  metadataBase: new URL("https://www.kaialearn.com"),
+  keywords: [...metadataKaialearn.keywords],
+  referrer: "origin-when-cross-origin",
+  authors: [{ name: "lou1s", url: "https://github.com/Lou1sVuong" }],
+  publisher: "lou1s aka Mai Vu Xuan Vuong",
+  alternates: {
+    canonical: "./",
+  },
+  openGraph: metadataKaialearn.openGraph,
 };
 
 export default function RootLayout({
@@ -62,6 +76,7 @@ export default function RootLayout({
           <Toaster />
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-4HJ1NNY14F" />
     </html>
   );
 }
