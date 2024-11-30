@@ -37,9 +37,9 @@ export default function FeatureSection() {
           return (
             <div key={index} className="border border-border p-6">
               <Icon className="mb-4 size-8 lg:size-12" />
-              <h3 className="mb-2 text-lg font-semibold lg:text-xl">
+              <p className="mb-2 text-lg font-semibold lg:text-xl">
                 {feature.title}
-              </h3>
+              </p>
               <p className="text-sm text-muted-foreground lg:text-base">
                 {feature.description}
               </p>
