@@ -15,8 +15,8 @@ import { WagmiProvider, http } from "wagmi";
 const { wallets } = getDefaultWallets();
 
 const config = getDefaultConfig({
-  appName: "Mulinks",
-  projectId: "7011a11201f00bcb6ec3a11c9ac44055",
+  appName: "kaialearn",
+  projectId: "455a9939d641d79b258424737e7f9205",
   wallets: [
     ...wallets,
     {
