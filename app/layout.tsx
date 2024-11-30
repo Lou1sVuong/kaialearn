@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import localFont from "next/font/local";
 import Providers from "@/providers";
 import TopLoader from "@/components/top-loader.tsx";
@@ -75,6 +76,7 @@ export default function RootLayout({
           <Toaster />
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-4HJ1NNY14F" />
     </html>
   );
 }
