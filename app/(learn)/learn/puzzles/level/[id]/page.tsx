@@ -26,6 +26,7 @@ import { notFound } from "next/navigation";
 import { LinkButton } from "@/components/ui/link-button";
 import { useMintNFT } from "@/lib/mint-certificate";
 import { toast } from "@/hooks/use-toast";
+import { useAccount } from "wagmi";
 
 export default function PuzzlePage({
   params,
@@ -37,6 +38,7 @@ export default function PuzzlePage({
   const puzzleId = parseInt(id);
   const currentPuzzleIndex = puzzles.findIndex((p) => p.id === puzzleId);
   const { mintNFT, isPending, isConfirming, isConfirmed } = useMintNFT();
+  const { isConnected } = useAccount();
 
   if (currentPuzzleIndex === -1) {
     notFound();
@@ -82,6 +84,13 @@ export default function PuzzlePage({
   };
 
   const handleCertificate = () => {
+    if (!isConnected) {
+      toast({
+        title: "Pls Connect Your Wallet",
+        description: "Connect Your Wallet Before Minting",
+      });
+      return;
+    }
     mintNFT(infoCertificate);
   };
 
