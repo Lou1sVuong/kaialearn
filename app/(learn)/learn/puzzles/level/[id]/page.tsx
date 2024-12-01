@@ -24,7 +24,8 @@ import { Badge } from "@/components/ui/badge";
 import { useRouter } from "next/navigation";
 import { notFound } from "next/navigation";
 import { LinkButton } from "@/components/ui/link-button";
-import { mintNFT } from "@/lib/mint-certificate";
+import { useMintNFT } from "@/lib/mint-certificate";
+import { toast } from "@/hooks/use-toast";
 
 export default function PuzzlePage({
   params,
@@ -35,6 +36,7 @@ export default function PuzzlePage({
   const { id } = use(params);
   const puzzleId = parseInt(id);
   const currentPuzzleIndex = puzzles.findIndex((p) => p.id === puzzleId);
+  const { mintNFT, isPending, isConfirming, isConfirmed } = useMintNFT();
 
   if (currentPuzzleIndex === -1) {
     notFound();
@@ -62,10 +64,25 @@ export default function PuzzlePage({
     setIsCompleted(false);
     setFeedback("");
     router.push(`/learn/puzzles/level/${puzzles[currentPuzzle].id}`);
-  }, [currentPuzzle]);
+  }, [currentPuzzle, router]);
 
-  const handleEditorChange = (value: any) => {
-    setUserSolution(value);
+  useEffect(() => {
+    if (isConfirmed) {
+      toast({
+        title: "Minted Certificate Successfully",
+        description: "You can now view your certificate in your wallet",
+      });
+    }
+  }, [isConfirmed]);
+
+  const handleEditorChange = (value: string | undefined) => {
+    if (value !== undefined) {
+      setUserSolution(value);
+    }
+  };
+
+  const handleCertificate = () => {
+    mintNFT(infoCertificate);
   };
 
   const checkSolution = () => {
@@ -190,9 +207,16 @@ export default function PuzzlePage({
                   {isCompleted && (
                     <Button
                       variant="outline"
-                      onClick={() => mintNFT(infoCertificate)}
+                      onClick={handleCertificate}
+                      disabled={isPending || isConfirmed}
                     >
-                      Mint Certificate
+                      {isPending
+                        ? "Confirming..."
+                        : isConfirming
+                          ? "Minting"
+                          : isConfirmed
+                            ? "Minted"
+                            : "Mint Certificate"}
                     </Button>
                   )}
                 </div>
