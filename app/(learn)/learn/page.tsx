@@ -8,51 +8,64 @@ import {
   Code2,
   Brain,
   GraduationCap,
-  Gamepad2,
+  Coins,
+  Trophy,
+  Calendar,
+  Star,
+  Gift,
+  Hammer,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const learningModules = [
   {
     title: "Smart Contract Puzzles",
-    description: "Solve smart contract puzzles to enhance your skills",
+    description: "Solve smart contract puzzles to enhance your Solidity skills",
     icon: <Puzzle className="h-8 w-8" />,
     href: "/learn/puzzles",
     status: "active",
   },
   {
-    title: "Solidity Basics",
-    description: "Learn the fundamental concepts of Solidity language",
-    icon: <Code2 className="h-8 w-8" />,
-    href: "/learn/solidity",
-    status: "coming-soon",
-  },
-  {
-    title: "Interactive Tutorials",
-    description: "Step-by-step interactive guides for hands-on learning",
-    icon: <BookOpen className="h-8 w-8" />,
-    href: "/learn/tutorials",
-    status: "coming-soon",
-  },
-  {
-    title: "Mini Games",
-    description: "Learn through fun and engaging mini-games",
-    icon: <Gamepad2 className="h-8 w-8" />,
-    href: "/learn/games",
-    status: "coming-soon",
-  },
-  {
-    title: "Challenge Mode",
-    description: "Test yourself with advanced coding challenges",
-    icon: <Brain className="h-8 w-8" />,
-    href: "/learn/challenges",
-    status: "coming-soon",
-  },
-  {
-    title: "Learning Paths",
-    description: "Structured learning paths designed for every level",
+    title: "Kaia Bootcamp",
+    description:
+      "Intensive program covering all aspects of blockchain development",
     icon: <GraduationCap className="h-8 w-8" />,
-    href: "/learn/paths",
+    href: "/learn/blockchain-bootcamp",
+    status: "coming-soon",
+  },
+  {
+    title: "Blockchain Fundamentals",
+    description: "Learn the core concepts of blockchain technology",
+    icon: <BookOpen className="h-8 w-8" />,
+    href: "/learn/blockchain-fundamentals",
+    status: "coming-soon",
+  },
+  {
+    title: "Solidity Deep Dive",
+    description: "Master advanced Solidity programming techniques",
+    icon: <Code2 className="h-8 w-8" />,
+    href: "/learn/solidity-advanced",
+    status: "coming-soon",
+  },
+  {
+    title: "DeFi Protocols",
+    description: "Explore decentralized finance protocols and implementations",
+    icon: <Coins className="h-8 w-8" />,
+    href: "/learn/defi-protocols",
+    status: "coming-soon",
+  },
+  {
+    title: "Blockchain Security",
+    description: "Learn best practices for securing smart contracts and dApps",
+    icon: <Brain className="h-8 w-8" />,
+    href: "/learn/blockchain-security",
+    status: "coming-soon",
+  },
+  {
+    title: "Hackathon Challenges",
+    description: "Participate in coding hackathons to showcase your skills",
+    icon: <Hammer className="h-8 w-8" />,
+    href: "/learn/hackathons",
     status: "coming-soon",
   },
 ];
@@ -63,17 +76,19 @@ export default function LearnPage() {
   const handleComingSoonToast = (module: string) => {
     toast({
       title: `${module} is Coming Soon`,
-      description: "This module is coming soon",
+      description: "This module is not yet available. Stay tuned!",
     });
   };
+
   return (
     <div className="container mt-24 p-4 lg:mt-32 xl:p-0">
       <div className="mb-8">
         <h1 className="text-2xl font-bold lg:text-4xl">
-          Learn Web3 Development
+          Blockchain Development Bootcamp
         </h1>
         <p className="mt-2 text-base text-muted-foreground lg:text-lg">
-          Choose a learning module to begin your journey
+          Master blockchain development through our comprehensive learning
+          modules
         </p>
       </div>
 
@@ -121,19 +136,19 @@ export default function LearnPage() {
       </div>
 
       <div className="mb-12 mt-12 border border-border p-6">
-        <h2 className="text-2xl font-bold">Your Learning Progress</h2>
+        <h2 className="text-2xl font-bold">Your Bootcamp Progress</h2>
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <div className="rounded-lg bg-background p-4">
             <h3 className="font-semibold">Completed Puzzles</h3>
             <p className="text-3xl font-bold">0/10</p>
           </div>
           <div className="rounded-lg bg-background p-4">
-            <h3 className="font-semibold">Completed Lessons</h3>
-            <p className="text-3xl font-bold">0/20</p>
+            <h3 className="font-semibold">Modules Completed</h3>
+            <p className="text-3xl font-bold">0/6</p>
           </div>
           <div className="rounded-lg bg-background p-4">
-            <h3 className="font-semibold">Achievement Level</h3>
-            <p className="text-3xl font-bold">Beginner</p>
+            <h3 className="font-semibold">Bootcamp Progress</h3>
+            <p className="text-3xl font-bold">0%</p>
           </div>
         </div>
       </div>
