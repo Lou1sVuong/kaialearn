@@ -1,32 +1,44 @@
-import { ethers } from "ethers";
+import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 import KaiaLearnNFT_ABI from "@/lib/abi/KaiaLearnNFT.json";
 import { toast } from "@/hooks/use-toast";
 
-export async function mintNFT({
-  title,
-  description,
-  score,
-}: {
-  title: string;
-  description: string;
-  score: number;
-}) {
-  const provider = new ethers.BrowserProvider(window.ethereum);
-  const signer = await provider.getSigner();
+const contractAddress = "0xdc974c5476b08fb1e182519880498119f598d57d";
 
-  // Lấy hợp đồng KaiaLearnNFT đã triển khai
-  const contractAddress = "0xe51fd96c6f5285bd0ef4749644c9af6b3d4fa227";
-  const contract = new ethers.Contract(
-    contractAddress,
-    KaiaLearnNFT_ABI,
-    signer,
-  );
+export function useMintNFT() {
+  // Set up the contract write function
+  const { data: hash, error, isPending, writeContract } = useWriteContract();
 
-  // Gọi hàm mintCertificate và truyền metadata base64
-  const tx = await contract.mintCertificate(title, description, score);
-  await tx.wait();
-  toast({
-    title: "Minted Certificate Successfully",
-    description: "You can now view your certificate in your wallet",
-  });
+  async function mintNFT({
+    title,
+    description,
+    score,
+  }: {
+    title: string;
+    description: string;
+    score: number;
+  }) {
+    try {
+      writeContract({
+        address: contractAddress,
+        abi: KaiaLearnNFT_ABI,
+        functionName: "mintCertificate",
+        args: [title, description, score],
+      });
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Error",
+        description: "An error occurred while minting your certificate",
+      });
+    }
+  }
+
+  // Call useWaitForTransactionReceipt at the top level of the hook
+
+  const { isLoading: isConfirming, isSuccess: isConfirmed } =
+    useWaitForTransactionReceipt({
+      hash,
+    });
+
+  return { mintNFT, isPending, hash, isConfirming, isConfirmed };
 }
